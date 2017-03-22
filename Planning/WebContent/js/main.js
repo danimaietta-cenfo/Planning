@@ -18,6 +18,7 @@ function validate(){
 		i = 0;
 	}
 	$("#bgimg").fadeOut(200, function(){
+		console.log("DADDSADAADASD MUNGO!!!!!!!!!!!!!!!!!")
 		document.getElementById("bgimg").style.backgroundImage = "url("+imgs[i]+")";
 		$("#bgimg").fadeIn(200);
 	});
