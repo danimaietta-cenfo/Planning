@@ -14,7 +14,7 @@ import com.mongodb.MongoClient;
 
 public class StringUtil {
 	
-	public static void method(){
+	public static String method(){
 		ArrayList<Futbolista> futbolistas = new ArrayList<Futbolista>();
 
 		futbolistas.add(new Futbolista("Iker", "Casillas", 33, new ArrayList<String>(Arrays.asList("Portero")), true));
@@ -23,7 +23,8 @@ public class StringUtil {
 		futbolistas.add(new Futbolista("Andrés", "Iniesta", 30, new ArrayList<String>(Arrays.asList("Centrocampista", "Delantero")), true));
 		futbolistas.add(new Futbolista("Fernando", "Torres", 30, new ArrayList<String>(Arrays.asList("Delantero")), true));
 		futbolistas.add(new Futbolista("Leo", " Baptistao", 22, new ArrayList<String>(Arrays.asList("Delantero")), false));
-
+		String b = "";
+		
 		try {
 		// PASO 1: Conexión al Server de MongoDB Pasandole el host y el puerto
 			MongoClient mongoClient = new MongoClient("localhost", 27017);
@@ -33,6 +34,8 @@ public class StringUtil {
 
 		// PASO 3: Obtenemos una coleccion para trabajar con ella
 			DBCollection collection = db.getCollection("Futbolistas");
+			DBObject a = collection.findOne();
+			b = a.toString();
 
 		// PASO 4: CRUD (Create-Read-Update-Delete)
 
@@ -67,6 +70,8 @@ public class StringUtil {
 			} finally {
 				cursor.close();
 			}
+			
+			
 
 			// PASO 4.3: "UPDATE" -> Actualizamos la edad de los jugadores. Sumamos 100 años a los jugadores que tengan mas de 30 años
 			DBObject find = new BasicDBObject("edad", new BasicDBObject("$gt", 30));
@@ -79,9 +84,17 @@ public class StringUtil {
 
 		// PASO FINAL: Cerrar la conexion
 			mongoClient.close();
+			
+			
 
 		} catch (UnknownHostException ex) {
 			System.out.println("Exception al conectar al server de Mongo: " + ex.getMessage());
 		}
+		
+		return b;
+	}
+	
+	public static String damedatos(){
+		return "abcde";
 	}
 }

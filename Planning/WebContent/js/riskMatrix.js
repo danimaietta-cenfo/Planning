@@ -1,9 +1,3 @@
-function validate(){
-	StringUtil.method(function(data){
-		console.log(data);
-	});
-}
- 
   var imgs = ['images/office1.jpg',
             'images/office2.jpg',
             'images/office3.jpg',
@@ -25,5 +19,3 @@ function validate(){
 	});
 	setTimeout(changeImage, 10000);
  }
-
- 
