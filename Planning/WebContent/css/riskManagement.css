@@ -9,6 +9,17 @@
   #bgimg .center{
  	position: absolute;
 	background-color: yellow;
- 	 width: 50%;
+ 	width: 50%;
   	margin: 0 auto;
  }
+ 
+ .whiteBox{
+	margin: auto;
+    width: 60%;
+    height: 100%;
+    background-color: white;
+}
+
+.red{
+	color: red;
+}

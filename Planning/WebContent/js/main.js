@@ -1,7 +1,6 @@
 var app = angular.module('app', []);
 
 app.controller('ctrl1', function($scope){
-	$scope.name = "perro";
 	
 	function validate(){
 	StringUtil.method({
