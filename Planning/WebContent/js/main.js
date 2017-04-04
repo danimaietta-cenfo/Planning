@@ -1,6 +1,13 @@
-function validate(){
-	StringUtil.method(function(data){
+var app = angular.module('app', []);
+
+app.controller('ctrl1', function($scope){
+	$scope.name = "perro";
+	
+	function validate(){
+	StringUtil.method({
+		callback:function(data){
 		console.log(data);
+		}
 	});
 }
  
@@ -25,5 +32,15 @@ function validate(){
 	});
 	setTimeout(changeImage, 10000);
  }
+ 
+});
+
+
+
+
+
+
+
+
 
  

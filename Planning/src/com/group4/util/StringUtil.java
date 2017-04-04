@@ -1,20 +1,20 @@
 package com.group4.util;
-import com.java.mongo.Futbolista;
-
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.java.mongo.Futbolista;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
+//import com.sun.java.util.jar.pack.Package.File;
 
 public class StringUtil {
 	
-	public static String method(){
+	public static BasicDBObject method(){
 		ArrayList<Futbolista> futbolistas = new ArrayList<Futbolista>();
 
 		futbolistas.add(new Futbolista("Iker", "Casillas", 33, new ArrayList<String>(Arrays.asList("Portero")), true));
@@ -23,9 +23,10 @@ public class StringUtil {
 		futbolistas.add(new Futbolista("Andrés", "Iniesta", 30, new ArrayList<String>(Arrays.asList("Centrocampista", "Delantero")), true));
 		futbolistas.add(new Futbolista("Fernando", "Torres", 30, new ArrayList<String>(Arrays.asList("Delantero")), true));
 		futbolistas.add(new Futbolista("Leo", " Baptistao", 22, new ArrayList<String>(Arrays.asList("Delantero")), false));
-		String b = "";
+		BasicDBObject b = new BasicDBObject();
 		
 		try {
+			
 		// PASO 1: Conexión al Server de MongoDB Pasandole el host y el puerto
 			MongoClient mongoClient = new MongoClient("localhost", 27017);
 
@@ -34,8 +35,9 @@ public class StringUtil {
 
 		// PASO 3: Obtenemos una coleccion para trabajar con ella
 			DBCollection collection = db.getCollection("Futbolistas");
-			DBObject a = collection.findOne();
-			b = a.toString();
+			Futbolista futbolista = new Futbolista((BasicDBObject) collection.findOne());
+			b.equals(futbolista);
+			System.out.print("//////////////////////////////////////////// >>> :" + b);
 
 		// PASO 4: CRUD (Create-Read-Update-Delete)
 
@@ -64,8 +66,8 @@ public class StringUtil {
 			cursor = collection.find(query);
 			try {
 				while (cursor.hasNext()) {
-					Futbolista futbolista = new Futbolista((BasicDBObject) cursor.next());
-					System.out.println(futbolista.toString());
+					Futbolista futbolistaa = new Futbolista((BasicDBObject) cursor.next());
+					System.out.println(futbolistaa.toString());
 				}
 			} finally {
 				cursor.close();
@@ -86,15 +88,11 @@ public class StringUtil {
 			mongoClient.close();
 			
 			
-
 		} catch (UnknownHostException ex) {
 			System.out.println("Exception al conectar al server de Mongo: " + ex.getMessage());
 		}
 		
 		return b;
 	}
-	
-	public static String damedatos(){
-		return "abcde";
-	}
+
 }
