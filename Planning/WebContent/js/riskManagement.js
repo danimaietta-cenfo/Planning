@@ -8,6 +8,8 @@ app.controller('ctrl1', function($scope){
 					{description: "computer run out of RAM", probability: 50, impact: 1},
 				   ];
 	
+
+	
 	//Background config
 
 	var imgs = ['images/office1.jpg',
@@ -33,3 +35,7 @@ app.controller('ctrl1', function($scope){
 	 }
  
 });
+
+function test(){
+	RiskManagementDB.printFutbolistas();
+}

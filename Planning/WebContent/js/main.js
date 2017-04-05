@@ -2,13 +2,18 @@ var app = angular.module('app', []);
 
 app.controller('ctrl1', function($scope){
 	
-	function validate(){
+	//Crea coneccion con mongodb
+	ConnectionMongoDB.createConnection();
+	
+	/*function validate(){
 	StringUtil.method({
 		callback:function(data){
 		console.log(data);
 		}
 	});
-}
+}*/
+	
+	
  
   var imgs = ['images/office1.jpg',
             'images/office2.jpg',

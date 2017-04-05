@@ -8,24 +8,27 @@
   	<div ng-controller="ctrl1">
 			<div id="bgimg">
 				<div class="whiteBox">
-					<table class="table">
-						<thead>
-						      <tr>
-						        <th>Description</th>
-						        <th>Probability</th>
-						        <th>Impact</th>
-						        <th>Result</th>
-						      </tr>
-						</thead>
-						<tbody>
-						<tr ng-repeat="r in risks">
-							<td>{{r.description}}</td>
-							<td>{{r.probability}}</td>
-							<td>{{r.impact}}</td>
-							<td>{{r.impact * (r.probability * 0.1)}}</td>
-						</tr>
-						</tbody>
-					</table>
+					<button onclick="test()">Test</button>
+					<div class="table">
+						<table class="posTable">
+							<thead>
+							      <tr>
+							        <th>Description</th>
+							        <th>Probability</th>
+							        <th>Impact</th>
+							        <th>Result</th>
+							      </tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="r in risks">
+								<td>{{r.description}}</td>
+								<td>{{r.probability}}</td>
+								<td>{{r.impact}}</td>
+								<td>{{r.impact * (r.probability * 0.1)}}</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 	  		</div>
   	</div>
@@ -34,6 +37,9 @@
   </body>
   <!--  Development -->
   <script type="text/javascript" src="js/riskManagement.js"></script>
+  <script type="text/javascript" src="/Planning/dwr/engine.js"></script>
+  <script type="text/javascript" src="/Planning/dwr/interface/RiskManagementDB.js"></script>
+  <script type="text/javascript" src="/Planning/dwr/util.js"></script>
   <!--  JQuery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
