@@ -1,7 +1,9 @@
 package com.group4.util;
+
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 import com.java.mongo.Futbolista;
 import com.mongodb.BasicDBObject;
@@ -14,7 +16,7 @@ import com.mongodb.MongoClient;
 
 public class StringUtil {
 	
-	public static BasicDBObject method(){
+	public static DBObject method(Map c){
 		ArrayList<Futbolista> futbolistas = new ArrayList<Futbolista>();
 
 		futbolistas.add(new Futbolista("Iker", "Casillas", 33, new ArrayList<String>(Arrays.asList("Portero")), true));
@@ -23,9 +25,13 @@ public class StringUtil {
 		futbolistas.add(new Futbolista("Andrés", "Iniesta", 30, new ArrayList<String>(Arrays.asList("Centrocampista", "Delantero")), true));
 		futbolistas.add(new Futbolista("Fernando", "Torres", 30, new ArrayList<String>(Arrays.asList("Delantero")), true));
 		futbolistas.add(new Futbolista("Leo", " Baptistao", 22, new ArrayList<String>(Arrays.asList("Delantero")), false));
-		BasicDBObject b = new BasicDBObject();
+		Futbolista b = new Futbolista();
+		Object a = new Object();
 		
 		try {
+			c.equals(a);
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~: " + c.values());
+			
 			
 		// PASO 1: Conexión al Server de MongoDB Pasandole el host y el puerto
 			MongoClient mongoClient = new MongoClient("localhost", 27017);
@@ -35,8 +41,8 @@ public class StringUtil {
 
 		// PASO 3: Obtenemos una coleccion para trabajar con ella
 			DBCollection collection = db.getCollection("Futbolistas");
-			Futbolista futbolista = new Futbolista((BasicDBObject) collection.findOne());
-			b.equals(futbolista);
+			b = new Futbolista((BasicDBObject) collection.findOne());
+			//b.equals(futbolista);
 			System.out.print("//////////////////////////////////////////// >>> :" + b);
 
 		// PASO 4: CRUD (Create-Read-Update-Delete)
@@ -92,7 +98,7 @@ public class StringUtil {
 			System.out.println("Exception al conectar al server de Mongo: " + ex.getMessage());
 		}
 		
-		return b;
+		return b.toDBObjectFutbolista();
 	}
 
 }

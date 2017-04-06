@@ -3,18 +3,17 @@ var app = angular.module('app', []);
 app.controller('ctrl1', function($scope){
 	
 	//Crea coneccion con mongodb
-	ConnectionMongoDB.createConnection();
+	//ConnectionMongoDB.createConnection();
 	
-	/*function validate(){
-	StringUtil.method({
-		callback:function(data){
-		console.log(data);
-		}
-	});
-}*/
-	
-	
- 
+	var a = new Object(); 
+	a = {name: "a", last: "b"};
+	var b = "name";
+	$scope.validate = function(){
+		StringUtil.method(a, function(data){
+			console.log(data.nombre);
+		});
+	};
+
   var imgs = ['images/office1.jpg',
             'images/office2.jpg',
             'images/office3.jpg',
@@ -38,7 +37,6 @@ app.controller('ctrl1', function($scope){
  }
  
 });
-
 
 
 
