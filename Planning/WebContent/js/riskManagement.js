@@ -8,8 +8,6 @@ app.controller('ctrl1', function($scope){
 					{description: "computer run out of RAM", probability: 50, impact: 1},
 				   ];
 	
-
-	
 	//Background config
 
 	var imgs = ['images/office1.jpg',
@@ -32,6 +30,37 @@ app.controller('ctrl1', function($scope){
 			$("#bgimg").fadeIn(200);
 		});
 		setTimeout(changeImage, 10000);
+	 }
+	 
+	 var a;
+	 $scope.edit = function(index){
+		 a = index;
+	 }
+	 
+	 /*$scope.out = function(){
+		 $scope.risks[a].description = $('input', this).val();
+     	text = $scope.risks[a].description;
+		 $('.editText').html( text );
+	 }*/
+	 
+	 $(function(){
+		    $('.editText').dblclick( function(){
+		    	console.log("1> "+$scope.risks[a].description);
+		        var text = $scope.risks[a].description;
+		        $(this).html('<input type="text" value="'+text+'">').find('input').focus();
+		    }).keypress( function(e){
+		        if(e.keyCode == 13){
+		        	$scope.risks[a].description = $('input', this).val();
+		        	text = $scope.risks[a].description;
+		            $(this).html( text );
+		            console.log("2> "+$scope.risks[a].description);
+		        }
+		    });
+	 });
+	 
+	 
+	 $scope.test = function(){
+		 console.log($scope.risks[1].description);
 	 }
  
 });

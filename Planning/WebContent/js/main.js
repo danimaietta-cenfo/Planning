@@ -10,7 +10,7 @@ app.controller('ctrl1', function($scope){
 	var b = "name";
 	$scope.validate = function(){
 		StringUtil.method(a, function(data){
-			console.log(data.nombre);
+			console.log(data);
 		});
 	};
 
@@ -37,6 +37,8 @@ app.controller('ctrl1', function($scope){
  }
  
 });
+
+
 
 
 
