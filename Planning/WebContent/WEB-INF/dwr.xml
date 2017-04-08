@@ -8,6 +8,9 @@
     <create creator="new" javascript="StringUtil">
       <param name="class" value="com.group4.util.StringUtil"/>
     </create>
+    <create creator="new" javascript="ProjectDB">
+      <param name="class" value="com.group4.util.ProjectDB"/>
+    </create>
     <create creator="new" javascript="RiskManagementDB">
       <param name="class" value="com.group4.util.RiskManagementDB"/>
     </create>

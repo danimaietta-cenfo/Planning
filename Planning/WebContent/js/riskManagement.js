@@ -60,11 +60,7 @@ app.controller('ctrl1', function($scope){
 	 
 	 
 	 $scope.test = function(){
-		 console.log($scope.risks[1].description);
+		RiskManagementDB.addRiskManagement();
 	 }
  
 });
-
-function test(){
-	RiskManagementDB.printFutbolistas();
-}
